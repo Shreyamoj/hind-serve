@@ -12,12 +12,15 @@ const ServiceCategoryPage = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [location, setLocation] = useState("");
   
-  // Mock data for service providers
+  // Mock data for service providers with added support for carpenters
   const providers = [
     {
       id: 1,
       name: "Rahul Sharma",
-      profession: category === "electricians" ? "Senior Electrician" : category === "plumbers" ? "Master Plumber" : "Mathematics Tutor",
+      profession: 
+        category === "electricians" ? "Senior Electrician" : 
+        category === "plumbers" ? "Master Plumber" : 
+        category === "carpenters" ? "Expert Carpenter" : "Professional",
       rating: 4.9,
       reviews: 127,
       image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80",
@@ -28,7 +31,10 @@ const ServiceCategoryPage = () => {
     {
       id: 2,
       name: "Amit Patel",
-      profession: category === "electricians" ? "Electrician" : category === "plumbers" ? "Plumbing Expert" : "Science Tutor",
+      profession: 
+        category === "electricians" ? "Electrician" : 
+        category === "plumbers" ? "Plumbing Expert" : 
+        category === "carpenters" ? "Furniture Specialist" : "Professional",
       rating: 4.7,
       reviews: 98,
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80",
@@ -39,7 +45,10 @@ const ServiceCategoryPage = () => {
     {
       id: 3,
       name: "Priya Singh",
-      profession: category === "electricians" ? "Electrical Engineer" : category === "plumbers" ? "Plumber" : "Mathematics Tutor",
+      profession: 
+        category === "electricians" ? "Electrical Engineer" : 
+        category === "plumbers" ? "Plumber" : 
+        category === "carpenters" ? "Woodwork Expert" : "Professional",
       rating: 4.95,
       reviews: 156,
       image: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80",
@@ -50,7 +59,10 @@ const ServiceCategoryPage = () => {
     {
       id: 4,
       name: "Vikram Mehta",
-      profession: category === "electricians" ? "Master Electrician" : category === "plumbers" ? "Pipe Specialist" : "English Tutor",
+      profession: 
+        category === "electricians" ? "Master Electrician" : 
+        category === "plumbers" ? "Pipe Specialist" : 
+        category === "carpenters" ? "Cabinet Maker" : "Professional",
       rating: 4.8,
       reviews: 112,
       image: "https://images.unsplash.com/photo-1500048993953-d23a436266cf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80",
@@ -70,15 +82,15 @@ const ServiceCategoryPage = () => {
     <div className="min-h-screen flex flex-col">
       <Navbar />
       
-      <main className="flex-grow">
+      <main className="flex-grow animate-fade-in">
         <div className="bg-hindserve-primary/5 py-8">
           <div className="container-custom">
-            <h1 className="text-3xl md:text-4xl font-bold mb-4">{formatCategoryName(category)}</h1>
-            <p className="text-hindserve-gray-600 mb-6">
+            <h1 className="text-3xl md:text-4xl font-bold mb-4 animate-slide-up">{formatCategoryName(category)}</h1>
+            <p className="text-hindserve-gray-600 mb-6 animate-slide-up" style={{ animationDelay: "100ms" }}>
               Find the best {category} in your area for your needs
             </p>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 animate-slide-up" style={{ animationDelay: "200ms" }}>
               <div className="relative">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-hindserve-gray-400" size={18} />
                 <Input 
@@ -97,7 +109,7 @@ const ServiceCategoryPage = () => {
                   onChange={(e) => setLocation(e.target.value)}
                 />
               </div>
-              <Button className="bg-hindserve-primary hover:bg-hindserve-primary/90">
+              <Button className="bg-hindserve-primary hover:bg-hindserve-primary/90 transition-all duration-300">
                 <Search className="mr-2" size={16} />
                 Search
               </Button>
@@ -133,8 +145,12 @@ const ServiceCategoryPage = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {providers.map((provider) => (
-              <div key={provider.id} className="bg-white rounded-xl shadow-sm border border-hindserve-gray-100 overflow-hidden">
+            {providers.map((provider, index) => (
+              <div 
+                key={provider.id} 
+                className="bg-white rounded-xl shadow-sm border border-hindserve-gray-100 overflow-hidden hover-scale"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
                 <div className="relative">
                   <img 
                     src={provider.image} 
@@ -142,7 +158,7 @@ const ServiceCategoryPage = () => {
                     className="w-full h-52 object-cover"
                   />
                   {provider.available && (
-                    <span className="absolute top-3 right-3 bg-hindserve-secondary text-white text-xs px-2 py-1 rounded-full">
+                    <span className="absolute top-3 right-3 bg-hindserve-secondary text-white text-xs px-2 py-1 rounded-full animate-pulse">
                       Available Now
                     </span>
                   )}
@@ -171,7 +187,7 @@ const ServiceCategoryPage = () => {
                     <span className="mx-2">•</span>
                     ₹{provider.hourlyRate}/hr
                   </div>
-                  <Button className="w-full bg-hindserve-primary hover:bg-hindserve-primary/90">View Profile</Button>
+                  <Button className="w-full bg-hindserve-primary hover:bg-hindserve-primary/90 transition-all duration-300">View Profile</Button>
                 </div>
               </div>
             ))}

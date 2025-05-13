@@ -11,8 +11,8 @@ interface ServiceCategoryProps {
 const ServiceCategoryCard = ({ title, icon, description, url }: ServiceCategoryProps) => {
   return (
     <Link to={url} className="group">
-      <div className="bg-white rounded-xl shadow-sm border border-hindserve-gray-100 p-6 flex flex-col items-center hover:shadow-md transition-all duration-200 transform hover:-translate-y-1">
-        <div className="w-16 h-16 rounded-full bg-hindserve-primary/10 flex items-center justify-center mb-4 group-hover:bg-hindserve-primary/20">
+      <div className="bg-white rounded-xl shadow-sm border border-hindserve-gray-100 p-6 flex flex-col items-center hover:shadow-md transition-all duration-300 transform hover:-translate-y-2">
+        <div className="w-16 h-16 rounded-full bg-hindserve-primary/10 flex items-center justify-center mb-4 group-hover:bg-hindserve-primary/20 transition-colors duration-300">
           <div dangerouslySetInnerHTML={{ __html: icon }} className="w-8 h-8 text-hindserve-primary" />
         </div>
         <h3 className="text-xl font-semibold mb-2 text-hindserve-gray-900">{title}</h3>
@@ -41,27 +41,27 @@ const ServiceCategories = () => {
       url: "/services/plumbers"
     },
     {
-      title: "Tutors",
+      title: "Carpenters",
       icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
             </svg>`,
-      description: "Expert tutors for all subjects and levels",
-      url: "/services/tutors"
+      description: "Expert woodworking, furniture repair and custom designs",
+      url: "/services/carpenters"
     },
   ];
 
   return (
-    <section className="py-16 bg-hindserve-gray-50">
+    <section className="py-12 bg-hindserve-gray-50">
       <div className="container-custom">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Services</h2>
+        <div className="text-center mb-10">
+          <h2 className="text-3xl md:text-4xl font-bold mb-3">Our Services</h2>
           <p className="text-hindserve-gray-600 max-w-2xl mx-auto">
-            Connect with skilled professionals for all your home and educational needs.
+            Connect with skilled professionals for all your home service needs.
             Our vetted experts are ready to help.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 animate-fade-in">
           {categories.map((category, index) => (
             <ServiceCategoryCard
               key={index}
