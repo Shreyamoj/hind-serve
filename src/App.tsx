@@ -13,6 +13,7 @@ import Signup from "./pages/auth/Signup";
 import Bookings from "./pages/user/Bookings";
 import Messages from "./pages/user/Messages";
 import Profile from "./pages/user/Profile";
+import ProtectedRoute from "./components/auth/ProtectedRoute";
 
 const queryClient = new QueryClient();
 
@@ -33,10 +34,22 @@ const App = () => (
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           
-          {/* User Dashboard Routes */}
-          <Route path="/bookings" element={<Bookings />} />
-          <Route path="/messages" element={<Messages />} />
-          <Route path="/profile" element={<Profile />} />
+          {/* Protected User Dashboard Routes */}
+          <Route path="/bookings" element={
+            <ProtectedRoute>
+              <Bookings />
+            </ProtectedRoute>
+          } />
+          <Route path="/messages" element={
+            <ProtectedRoute>
+              <Messages />
+            </ProtectedRoute>
+          } />
+          <Route path="/profile" element={
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>
+          } />
           
           {/* Catch-all - 404 Not Found */}
           <Route path="*" element={<NotFound />} />

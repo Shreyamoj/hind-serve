@@ -1,13 +1,15 @@
 
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import { Lock } from "lucide-react";
+import { toast } from "sonner";
+import { loginUser } from "@/lib/api";
+import { saveTokens, isAuthenticated } from "@/lib/auth";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -15,35 +17,42 @@ const Login = () => {
   const [rememberMe, setRememberMe] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
+
+  // Check if user is already logged in
+  useEffect(() => {
+    // If already authenticated, redirect to home page
+    if (isAuthenticated()) {
+      navigate("/");
+    }
+    
+    // Check if remember me was previously used
+    const remembered = localStorage.getItem("rememberUser") === "true";
+    setRememberMe(remembered);
+  }, [navigate]);
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
     setIsLoading(true);
 
-    // Mock login - replace with actual authentication logic when backend is integrated
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Call login API
+      const response = await loginUser({ email, password });
       
-      // For now, just show success and don't actually log in
-      console.log("Login attempted with:", { email, password, rememberMe });
+      // Save the tokens and remember me preference
+      saveTokens(
+        response.accessToken,
+        response.refreshToken,
+        rememberMe
+      );
       
-      // If remember me is checked, we would set a longer expiration for the token/cookie
-      if (rememberMe) {
-        // In a real implementation, you would store the token with a longer expiration
-        console.log("User will be remembered");
-        localStorage.setItem("rememberUser", "true");
-      } else {
-        // In a real implementation, you would store the token with a shorter expiration
-        console.log("User will not be remembered");
-        localStorage.removeItem("rememberUser");
-      }
+      // Show success notification
+      toast.success("Login successful!");
       
-      // Redirect would happen here after successful login
-      // window.location.href = "/";
+      // Redirect to home page
+      navigate("/");
       
-      setIsLoading(false);
     } catch (err) {
       setIsLoading(false);
       setError("Failed to log in. Please check your credentials and try again.");
