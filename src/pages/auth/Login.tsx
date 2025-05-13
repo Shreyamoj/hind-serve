@@ -4,12 +4,15 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Checkbox } from "@/components/ui/checkbox";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import { Lock } from "lucide-react";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [rememberMe, setRememberMe] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -24,7 +27,18 @@ const Login = () => {
       await new Promise(resolve => setTimeout(resolve, 1000));
       
       // For now, just show success and don't actually log in
-      console.log("Login attempted with:", { email, password });
+      console.log("Login attempted with:", { email, password, rememberMe });
+      
+      // If remember me is checked, we would set a longer expiration for the token/cookie
+      if (rememberMe) {
+        // In a real implementation, you would store the token with a longer expiration
+        console.log("User will be remembered");
+        localStorage.setItem("rememberUser", "true");
+      } else {
+        // In a real implementation, you would store the token with a shorter expiration
+        console.log("User will not be remembered");
+        localStorage.removeItem("rememberUser");
+      }
       
       // Redirect would happen here after successful login
       // window.location.href = "/";
@@ -85,6 +99,20 @@ const Login = () => {
                   onChange={(e) => setPassword(e.target.value)}
                   required
                 />
+              </div>
+              
+              <div className="flex items-center space-x-2">
+                <Checkbox 
+                  id="remember" 
+                  checked={rememberMe}
+                  onCheckedChange={(checked) => setRememberMe(checked === true)}
+                />
+                <Label 
+                  htmlFor="remember" 
+                  className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                >
+                  Remember me
+                </Label>
               </div>
 
               <Button 
