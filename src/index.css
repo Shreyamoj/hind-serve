@@ -1,4 +1,6 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Hind:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -35,6 +37,17 @@
     --ring: 27 100% 60%; /* Saffron */
 
     --radius: 0.5rem;
+    
+    /* Indian color palette */
+    --hindserve-saffron: 33 100% 60%; /* Indian flag saffron (enhanced) */
+    --hindserve-white: 0 0% 100%; /* Indian flag white */
+    --hindserve-green: 133 100% 29%; /* Indian flag green (enhanced) */
+    --hindserve-navy: 240 100% 25%; /* Deep blue - royal Indian color */
+    --hindserve-maroon: 0 100% 25%; /* Rich maroon - traditional Indian color */
+    --hindserve-gold: 51 100% 50%; /* Rich gold - festive Indian color */
+    --hindserve-orange: 25 100% 50%; /* Deeper orange for traditional touch */
+    --hindserve-turquoise: 178 59% 51%; /* Turquoise - used in Indian jewelry */
+    --hindserve-purple: 260 59% 65%; /* Royal purple - significant in Indian culture */
   }
 
   .dark {
@@ -74,11 +87,11 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-body antialiased;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-semibold tracking-tight;
+    @apply font-heading font-semibold tracking-tight;
   }
 
   h1 {
@@ -92,6 +105,18 @@
   h3 {
     @apply text-2xl sm:text-3xl;
   }
+
+  h4 {
+    @apply text-xl sm:text-2xl;
+  }
+
+  h5 {
+    @apply text-lg sm:text-xl;
+  }
+
+  h6 {
+    @apply text-base sm:text-lg;
+  }
 }
 
 @layer components {
@@ -100,15 +125,19 @@
   }
 
   .btn-primary {
-    @apply bg-hindserve-saffron text-white hover:bg-opacity-90 font-medium rounded-lg px-5 py-2.5 transition-all duration-200 shadow-sm hover:shadow-md;
+    @apply bg-hindserve-saffron text-white hover:bg-hindserve-saffron/90 font-medium rounded-lg px-5 py-2.5 transition-all duration-200 shadow-sm hover:shadow-md;
   }
 
   .btn-secondary {
-    @apply bg-hindserve-green text-white hover:bg-opacity-90 font-medium rounded-lg px-5 py-2.5 transition-all duration-200 shadow-sm hover:shadow-md;
+    @apply bg-hindserve-green text-white hover:bg-hindserve-green/90 font-medium rounded-lg px-5 py-2.5 transition-all duration-200 shadow-sm hover:shadow-md;
   }
 
   .btn-outlined {
-    @apply border border-hindserve-saffron text-hindserve-saffron hover:bg-hindserve-saffron hover:text-white font-medium rounded-lg px-5 py-2.5 transition-all duration-200;
+    @apply border border-hindserve-saffron text-hindserve-saffron hover:bg-hindserve-saffron/10 hover:text-hindserve-saffron font-medium rounded-lg px-5 py-2.5 transition-all duration-200;
+  }
+  
+  .btn-ghost {
+    @apply text-hindserve-saffron hover:bg-hindserve-saffron/10 font-medium rounded-lg px-5 py-2.5 transition-all duration-200;
   }
   
   .indian-border {
@@ -117,6 +146,38 @@
   
   .indian-gradient {
     @apply bg-gradient-to-r from-hindserve-saffron via-white to-hindserve-green bg-clip-text text-transparent;
+  }
+
+  /* Card variations */
+  .card-elevated {
+    @apply bg-white rounded-xl shadow-lg border border-hindserve-gray-100;
+  }
+
+  .card-bordered {
+    @apply bg-white rounded-xl border-2 border-hindserve-saffron/20;
+  }
+
+  .card-gradient {
+    @apply bg-gradient-to-br from-white to-hindserve-saffron/5 rounded-xl shadow-md border border-hindserve-gray-100;
+  }
+
+  /* Section styles */
+  .section-padding {
+    @apply py-12 md:py-20;
+  }
+
+  /* Form elements */
+  .form-input {
+    @apply w-full px-4 py-2 border border-hindserve-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-hindserve-saffron focus:border-transparent transition-all duration-200;
+  }
+
+  .form-label {
+    @apply block text-sm font-medium text-hindserve-gray-700 mb-1;
+  }
+
+  /* Glassmorphism effect */
+  .glass {
+    @apply bg-white/80 backdrop-blur-md border border-white/20;
   }
 }
 
@@ -160,5 +221,27 @@
   
   .hover-scale {
     @apply transition-transform duration-300 hover:scale-105;
+  }
+
+  /* Text utilities */
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .text-pretty {
+    text-wrap: pretty;
+  }
+  
+  /* Gradient text */
+  .text-gradient-saffron {
+    @apply bg-gradient-to-r from-hindserve-saffron to-hindserve-amber bg-clip-text text-transparent;
+  }
+  
+  .text-gradient-green {
+    @apply bg-gradient-to-r from-hindserve-green to-hindserve-turquoise bg-clip-text text-transparent;
+  }
+  
+  .text-gradient-tricolor {
+    @apply bg-gradient-to-r from-hindserve-saffron via-hindserve-white to-hindserve-green bg-clip-text text-transparent;
   }
 }

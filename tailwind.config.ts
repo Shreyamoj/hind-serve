@@ -91,6 +91,10 @@ export default {
 					}
 				}
 			},
+			fontFamily: {
+        heading: ['Poppins', 'sans-serif'],
+        body: ['Hind', 'sans-serif'],
+      },
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
@@ -129,7 +133,14 @@ export default {
 				'slide-up': 'slide-up 0.5s ease-out',
 				'slide-in-right': 'slide-in-right 0.5s ease-out',
 				'pulse': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
-			}
+			},
+      boxShadow: {
+        'soft': '0 2px 10px rgba(0, 0, 0, 0.05)',
+        'medium': '0 4px 20px rgba(0, 0, 0, 0.1)',
+        'hard': '0 8px 30px rgba(0, 0, 0, 0.15)',
+        'inner-soft': 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
+        'colored': '0 4px 14px rgba(255, 153, 51, 0.25)',
+      },
 		}
 	},
 	plugins: [require("tailwindcss-animate")],
