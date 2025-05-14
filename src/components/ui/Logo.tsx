@@ -1,46 +1,63 @@
 
-import { Circle, Square, Triangle } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { Link } from "react-router-dom";
 
 interface LogoProps {
+  variant?: "default" | "white";
   size?: "sm" | "md" | "lg";
-  className?: string;
 }
 
-const Logo = ({ size = "md", className }: LogoProps) => {
+const Logo = ({ variant = "default", size = "md" }: LogoProps) => {
+  const textColor = variant === "white" ? "text-white" : "text-hindserve-primary";
+  
   const sizeClasses = {
     sm: "h-6",
     md: "h-8",
-    lg: "h-10",
+    lg: "h-10"
   };
 
   return (
-    <div className={cn("flex items-center gap-2", className)}>
-      <div className="relative flex items-center justify-center">
-        <Circle
-          className="text-[#FF9933] w-6 h-6 absolute animate-pulse"
-          fill="#FF9933"
-          strokeWidth={0}
-        />
-        <Square
-          className="text-white w-4 h-4 absolute animate-spin"
-          style={{ animationDuration: "10s" }}
-          fill="white"
-          strokeWidth={0}
-        />
-        <Triangle
-          className="text-[#138808] w-3 h-3 absolute animate-bounce"
-          style={{ animationDelay: "0.5s" }}
-          fill="#138808"
-          strokeWidth={0}
-        />
-      </div>
-      <div className={cn("font-bold flex flex-col", sizeClasses[size])}>
-        <span className="text-hindserve-primary bg-clip-text text-transparent bg-gradient-to-r from-[#FF9933] via-[#FFFFFF] to-[#138808]">
+    <Link to="/" className="flex items-center">
+      <div className="flex items-center space-x-1">
+        {/* Logo with Indian flag colors */}
+        <svg
+          viewBox="0 0 60 40"
+          className={`${sizeClasses[size]} mr-2 animate-fade-in`}
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g className="animate-slide-up" style={{ animationDelay: "100ms" }}>
+            {/* Saffron section (top) */}
+            <rect x="10" y="5" width="40" height="10" fill="#FF9933" rx="2" />
+            {/* White section (middle) */}
+            <rect x="10" y="15" width="40" height="10" fill="#FFFFFF" rx="0" />
+            {/* Green section (bottom) */}
+            <rect x="10" y="25" width="40" height="10" fill="#138808" rx="2" />
+            {/* Service icon */}
+            <path
+              d="M32 20a4 4 0 11-8 0 4 4 0 018 0z"
+              fill="#000080"
+              className="animate-pulse"
+              style={{ animationDelay: "300ms" }}
+            />
+            {/* Home outline */}
+            <path
+              d="M10 15L5 10h5zm40 0l5-5h-5z"
+              fill="#FF9933"
+              stroke="#000080"
+              strokeWidth="1"
+            />
+            <path
+              d="M10 25L5 30h5zm40 0l5 5h-5z"
+              fill="#138808" 
+              stroke="#000080"
+              strokeWidth="1"
+            />
+          </g>
+        </svg>
+        <span className={`font-bold text-xl ${textColor} tracking-tight animate-slide-up`}>
           HindServe
         </span>
       </div>
-    </div>
+    </Link>
   );
 };
 

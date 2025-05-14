@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/layout/Navbar";
@@ -24,7 +23,7 @@ const Index = () => {
       image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=150&q=80"
     },
     {
-      quote: "My son's grades improved significantly after we found a math tutor through HindServe. The platform makes it easy to find qualified professionals based on reviews.",
+      quote: "My furniture was damaged during a move, but the carpenter I found on HindServe restored it perfectly. His craftsmanship was excellent and pricing reasonable.",
       name: "Anita Patel",
       title: "Bangalore",
       image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=150&q=80"
