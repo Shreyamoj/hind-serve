@@ -14,17 +14,17 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
     
-    /* Using Indian flag colors */
-    --primary: 246 80% 59%;
+    /* Using Indian flag colors and traditional Indian colors */
+    --primary: 27 100% 60%; /* Saffron */
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 159 84% 39%;
+    --secondary: 120 84% 29%; /* Green */
     --secondary-foreground: 210 40% 98%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 210 40% 96.1%;
+    --accent: 240 100% 25%; /* Navy blue */
     --accent-foreground: 222.2 47.4% 11.2%;
 
     --destructive: 0 84.2% 60.2%;
@@ -32,7 +32,7 @@
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 246 80% 59%;
+    --ring: 27 100% 60%; /* Saffron */
 
     --radius: 0.5rem;
   }
@@ -47,16 +47,16 @@
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 246 80% 59%;
+    --primary: 27 100% 60%; /* Saffron */
     --primary-foreground: 222.2 47.4% 11.2%;
 
-    --secondary: 159 84% 39%;
+    --secondary: 120 84% 29%; /* Green */
     --secondary-foreground: 210 40% 98%;
 
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 217.2 32.6% 17.5%;
+    --accent: 240 100% 25%; /* Navy blue */
     --accent-foreground: 210 40% 98%;
 
     --destructive: 0 62.8% 30.6%;
@@ -64,7 +64,7 @@
 
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 246 80% 59%;
+    --ring: 27 100% 60%; /* Saffron */
   }
 }
 
@@ -100,15 +100,23 @@
   }
 
   .btn-primary {
-    @apply bg-hindserve-primary text-white hover:bg-opacity-90 font-medium rounded-lg px-5 py-2.5 transition-all duration-200 shadow-sm hover:shadow-md;
+    @apply bg-hindserve-saffron text-white hover:bg-opacity-90 font-medium rounded-lg px-5 py-2.5 transition-all duration-200 shadow-sm hover:shadow-md;
   }
 
   .btn-secondary {
-    @apply bg-hindserve-secondary text-white hover:bg-opacity-90 font-medium rounded-lg px-5 py-2.5 transition-all duration-200 shadow-sm hover:shadow-md;
+    @apply bg-hindserve-green text-white hover:bg-opacity-90 font-medium rounded-lg px-5 py-2.5 transition-all duration-200 shadow-sm hover:shadow-md;
   }
 
   .btn-outlined {
-    @apply border border-hindserve-primary text-hindserve-primary hover:bg-hindserve-primary hover:text-white font-medium rounded-lg px-5 py-2.5 transition-all duration-200;
+    @apply border border-hindserve-saffron text-hindserve-saffron hover:bg-hindserve-saffron hover:text-white font-medium rounded-lg px-5 py-2.5 transition-all duration-200;
+  }
+  
+  .indian-border {
+    @apply border-t-4 border-hindserve-saffron relative before:absolute before:left-0 before:right-0 before:h-1 before:-bottom-5 before:bg-hindserve-green;
+  }
+  
+  .indian-gradient {
+    @apply bg-gradient-to-r from-hindserve-saffron via-white to-hindserve-green bg-clip-text text-transparent;
   }
 }
 

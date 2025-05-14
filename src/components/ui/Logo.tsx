@@ -7,7 +7,7 @@ interface LogoProps {
 }
 
 const Logo = ({ variant = "default", size = "md" }: LogoProps) => {
-  const textColor = variant === "white" ? "text-white" : "text-hindserve-primary";
+  const textColor = variant === "white" ? "text-white" : "text-hindserve-saffron";
   
   const sizeClasses = {
     sm: "h-6",
@@ -31,13 +31,21 @@ const Logo = ({ variant = "default", size = "md" }: LogoProps) => {
             <rect x="10" y="15" width="40" height="10" fill="#FFFFFF" rx="0" />
             {/* Green section (bottom) */}
             <rect x="10" y="25" width="40" height="10" fill="#138808" rx="2" />
-            {/* Service icon */}
-            <path
-              d="M32 20a4 4 0 11-8 0 4 4 0 018 0z"
-              fill="#000080"
-              className="animate-pulse"
-              style={{ animationDelay: "300ms" }}
-            />
+            {/* Ashoka Chakra */}
+            <circle cx="30" cy="20" r="4" fill="#000080" className="animate-pulse" style={{ animationDelay: "300ms" }} />
+            <circle cx="30" cy="20" r="3.5" fill="none" stroke="#000080" strokeWidth="0.5" />
+            {/* Simplified spokes of the wheel */}
+            {[...Array(12)].map((_, i) => (
+              <line 
+                key={i}
+                x1="30"
+                y1="20"
+                x2={30 + 3 * Math.cos(i * Math.PI / 6)}
+                y2={20 + 3 * Math.sin(i * Math.PI / 6)}
+                stroke="#000080"
+                strokeWidth="0.5"
+              />
+            ))}
             {/* Home outline */}
             <path
               d="M10 15L5 10h5zm40 0l5-5h-5z"
@@ -54,7 +62,7 @@ const Logo = ({ variant = "default", size = "md" }: LogoProps) => {
           </g>
         </svg>
         <span className={`font-bold text-xl ${textColor} tracking-tight animate-slide-up`}>
-          HindServe
+          Hind<span className="text-hindserve-green">Serve</span>
         </span>
       </div>
     </Link>

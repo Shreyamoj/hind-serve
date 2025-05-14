@@ -68,9 +68,15 @@ export default {
 					secondary: '#10B981',
 					amber: '#F59E0B',
 					rose: '#F43F5E',
-					saffron: '#FF9933', // Indian flag saffron
+					saffron: '#FF9933', // Indian flag saffron (enhanced)
 					white: '#FFFFFF', // Indian flag white
-					green: '#138808', // Indian flag green
+					green: '#138808', // Indian flag green (enhanced)
+					navy: '#000080', // Deep blue - royal Indian color
+					maroon: '#800000', // Rich maroon - traditional Indian color
+					gold: '#FFD700', // Rich gold - festive Indian color
+					orange: '#FF6700', // Deeper orange for traditional touch
+					turquoise: '#30D5C8', // Turquoise - used in Indian jewelry
+					purple: '#9370DB', // Royal purple - significant in Indian culture
 					gray: {
 						50: '#F9FAFB',
 						100: '#F3F4F6',
