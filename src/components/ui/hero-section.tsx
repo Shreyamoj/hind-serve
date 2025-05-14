@@ -1,6 +1,7 @@
 
 import React, { ReactNode } from "react";
 import { Button } from "@/components/ui/button";
+import { Container } from "@/components/ui/container";
 
 interface HeroSectionProps {
   title: string;
@@ -38,9 +39,9 @@ const HeroSection = ({
   };
 
   const sizeClasses = {
-    sm: "py-12",
-    md: "py-20",
-    lg: "py-32",
+    sm: "py-8 md:py-12",
+    md: "py-12 md:py-16 lg:py-20",
+    lg: "py-16 md:py-24 lg:py-32",
   };
 
   const textClasses = {
@@ -67,12 +68,12 @@ const HeroSection = ({
         <div className={`absolute inset-0 ${overlayColor}`}></div>
       )}
 
-      <div className="container-custom relative z-10">
+      <Container size="default" className="relative z-10">
         <div className={`flex flex-col ${alignClasses[align]} max-w-3xl ${textClasses[align]}`}>
-          <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-6 ${backgroundImage ? "text-white" : ""}`}>
+          <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 ${backgroundImage ? "text-white" : ""}`}>
             {title}
           </h1>
-          <p className={`text-lg md:text-xl mb-8 ${backgroundImage ? "text-gray-100" : "text-gray-600"} max-w-xl ${textClasses[align]}`}>
+          <p className={`text-lg md:text-xl mb-6 md:mb-8 ${backgroundImage ? "text-gray-100" : "text-gray-600"} max-w-xl ${textClasses[align]}`}>
             {subtitle}
           </p>
 
@@ -91,7 +92,7 @@ const HeroSection = ({
 
           {children && <div className="mt-8">{children}</div>}
         </div>
-      </div>
+      </Container>
     </div>
   );
 };

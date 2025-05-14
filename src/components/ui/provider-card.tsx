@@ -62,7 +62,7 @@ const ProviderCard = ({
           )}
         </div>
       </div>
-      <CardContent className="p-5">
+      <CardContent className="p-4 md:p-6">
         <div className="flex items-center mb-3">
           <div className="flex mr-2">
             {[...Array(5)].map((_, i) => (
@@ -75,8 +75,8 @@ const ProviderCard = ({
           </div>
           <span className="text-gray-600 text-sm">{rating.toFixed(1)} ({reviews} reviews)</span>
         </div>
-        <h3 className="text-xl font-semibold mb-1">{name}</h3>
-        <p className="text-gray-600 mb-2">{profession}</p>
+        <h3 className="text-xl font-semibold mb-2">{name}</h3>
+        <p className="text-gray-600 mb-3">{profession}</p>
         <div className="flex items-center text-gray-600 text-sm mb-4">
           <MapPin size={14} className="mr-1" />
           {location}
@@ -84,7 +84,7 @@ const ProviderCard = ({
           <span className="font-semibold text-hindserve-saffron">₹{hourlyRate}/hr</span>
         </div>
       </CardContent>
-      <CardFooter className="pt-0 p-5">
+      <CardFooter className="p-4 md:p-6 pt-0">
         <Button asChild className="w-full bg-hindserve-primary hover:bg-hindserve-primary/90">
           <Link to={`/providers/${id}`}>View Profile</Link>
         </Button>

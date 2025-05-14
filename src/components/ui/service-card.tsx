@@ -46,12 +46,12 @@ const ServiceCard = ({
           {category}
         </Badge>
       </div>
-      <CardContent className="pt-4">
+      <CardContent className="p-4 md:p-6 pt-4">
         <div className="flex justify-between items-start">
           <div>
             <h3 className="font-semibold text-lg line-clamp-1">{title}</h3>
             {location && (
-              <div className="flex items-center text-gray-500 text-sm mt-1">
+              <div className="flex items-center text-gray-500 text-sm mt-2">
                 <MapPin size={14} className="mr-1" />
                 <span>{location}</span>
               </div>
@@ -60,7 +60,7 @@ const ServiceCard = ({
           <div className="text-right">
             <div className="font-bold text-hindserve-saffron">₹{price}</div>
             {rating && (
-              <div className="flex items-center mt-1">
+              <div className="flex items-center mt-2">
                 <span className="text-hindserve-gold mr-1">★</span>
                 <span className="text-sm">{rating} ({reviews} reviews)</span>
               </div>
@@ -69,7 +69,7 @@ const ServiceCard = ({
         </div>
         <p className="text-gray-600 mt-3 line-clamp-2">{description}</p>
       </CardContent>
-      <CardFooter className="pt-0">
+      <CardFooter className="p-4 md:p-6 pt-0">
         <Button asChild className="w-full bg-hindserve-saffron hover:bg-hindserve-saffron/90">
           <Link to={`/services/${category.toLowerCase()}/${id}`}>
             View Details

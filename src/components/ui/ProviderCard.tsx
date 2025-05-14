@@ -39,7 +39,7 @@ const ProviderCard = ({
         )}
       </div>
       
-      <div className="p-5 flex-grow flex flex-col">
+      <div className="p-4 md:p-6 flex-grow flex flex-col">
         <div className="flex justify-between items-start mb-2">
           <div>
             <h3 className="text-lg font-semibold text-hindserve-gray-900">{name}</h3>
@@ -48,7 +48,7 @@ const ProviderCard = ({
           <div className="text-hindserve-primary font-semibold">₹{hourlyRate}/hr</div>
         </div>
         
-        <div className="flex items-center mb-3">
+        <div className="flex items-center mb-4">
           <div className="text-yellow-400 flex">
             {[...Array(5)].map((_, i) => (
               <svg 
@@ -67,7 +67,7 @@ const ProviderCard = ({
           )}
         </div>
         
-        <div className="mt-auto pt-4 flex space-x-3">
+        <div className="mt-auto pt-4 flex gap-3">
           <Button 
             variant="outline" 
             className="flex-1 border-hindserve-primary text-hindserve-primary hover:bg-hindserve-primary hover:text-white"

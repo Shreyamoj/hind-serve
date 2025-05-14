@@ -120,26 +120,29 @@
 }
 
 @layer components {
+  /* Standardized container class based on 8-point system */
   .container-custom {
-    @apply container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    @apply container mx-auto px-4 sm:px-6 lg:px-8;
   }
 
+  /* Button variants with consistent padding */
   .btn-primary {
-    @apply bg-hindserve-saffron text-white hover:bg-hindserve-saffron/90 font-medium rounded-lg px-5 py-2.5 transition-all duration-200 shadow-sm hover:shadow-md;
+    @apply bg-hindserve-saffron text-white hover:bg-hindserve-saffron/90 font-medium rounded-lg px-4 py-2 transition-all duration-200 shadow-sm hover:shadow-md;
   }
 
   .btn-secondary {
-    @apply bg-hindserve-green text-white hover:bg-hindserve-green/90 font-medium rounded-lg px-5 py-2.5 transition-all duration-200 shadow-sm hover:shadow-md;
+    @apply bg-hindserve-green text-white hover:bg-hindserve-green/90 font-medium rounded-lg px-4 py-2 transition-all duration-200 shadow-sm hover:shadow-md;
   }
 
   .btn-outlined {
-    @apply border border-hindserve-saffron text-hindserve-saffron hover:bg-hindserve-saffron/10 hover:text-hindserve-saffron font-medium rounded-lg px-5 py-2.5 transition-all duration-200;
+    @apply border border-hindserve-saffron text-hindserve-saffron hover:bg-hindserve-saffron/10 hover:text-hindserve-saffron font-medium rounded-lg px-4 py-2 transition-all duration-200;
   }
   
   .btn-ghost {
-    @apply text-hindserve-saffron hover:bg-hindserve-saffron/10 font-medium rounded-lg px-5 py-2.5 transition-all duration-200;
+    @apply text-hindserve-saffron hover:bg-hindserve-saffron/10 font-medium rounded-lg px-4 py-2 transition-all duration-200;
   }
   
+  /* Decorative elements */
   .indian-border {
     @apply border-t-4 border-hindserve-saffron relative before:absolute before:left-0 before:right-0 before:h-1 before:-bottom-5 before:bg-hindserve-green;
   }
@@ -148,22 +151,22 @@
     @apply bg-gradient-to-r from-hindserve-saffron via-white to-hindserve-green bg-clip-text text-transparent;
   }
 
-  /* Card variations */
+  /* Card variations with consistent spacing */
   .card-elevated {
-    @apply bg-white rounded-xl shadow-lg border border-hindserve-gray-100;
+    @apply bg-white rounded-xl shadow-lg border border-hindserve-gray-100 p-4 md:p-6;
   }
 
   .card-bordered {
-    @apply bg-white rounded-xl border-2 border-hindserve-saffron/20;
+    @apply bg-white rounded-xl border-2 border-hindserve-saffron/20 p-4 md:p-6;
   }
 
   .card-gradient {
-    @apply bg-gradient-to-br from-white to-hindserve-saffron/5 rounded-xl shadow-md border border-hindserve-gray-100;
+    @apply bg-gradient-to-br from-white to-hindserve-saffron/5 rounded-xl shadow-md border border-hindserve-gray-100 p-4 md:p-6;
   }
 
   /* Section styles */
   .section-padding {
-    @apply py-12 md:py-20;
+    @apply py-12 md:py-16 lg:py-20;
   }
 
   /* Form elements */
@@ -172,7 +175,7 @@
   }
 
   .form-label {
-    @apply block text-sm font-medium text-hindserve-gray-700 mb-1;
+    @apply block text-sm font-medium text-hindserve-gray-700 mb-2;
   }
 
   /* Glassmorphism effect */
